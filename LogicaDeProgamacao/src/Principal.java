@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Principal {
@@ -30,17 +31,29 @@ public class Principal {
 				agenda.imprimeAgenda();
 				break;
 			case "4":
-				agenda.imprimePessoa(0);
+				try {
+					System.out.print("Informe um número: ");
+					int num = t.nextInt();
+					
+					agenda.imprimePessoa(num);
+				} catch(IndexOutOfBoundsException e) {	
+					System.out.println("Número excede a lista de contatos!");
+				} catch(InputMismatchException e) {	
+					System.out.println("Caractere inválido!");
+				} catch(Exception e) {
+					System.out.println("Dado inválido!");
+				}
 				break;
 			case "5":
 				System.out.println("Saindo do sistema.....");
+				opcao = "5";
 				break;
 			default:
 				System.out.println("Comando invalido!");
 				break;
 			}
 			
-		} while(opcao!="6");
+		} while(opcao!="5");
 		
 		/*
 		agenda.armazenaPessoa("Paulo", "12345678", "tututu@gmail.com");

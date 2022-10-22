@@ -38,5 +38,8 @@ public class Contato {
 		this.email = email;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Nome: " +nome+ "\nTelefone: " +telefone+ "\nEmail: " +email;
+	}
 }

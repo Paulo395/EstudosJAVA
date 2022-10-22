@@ -12,7 +12,12 @@ public class Agenda {
 	}
 	
 	public void removePessoa(String nome) {
-		agenda.remove(this.buscarPessoa(nome));
+		Integer i = this.buscarPessoa(nome);
+		if(i!=null) {
+			agenda.remove(i.intValue());
+		} else {
+			System.out.println("Contato não encontrado!");
+		}
 	}
 	
 	private Integer buscarPessoa(String nome) {
@@ -30,17 +35,19 @@ public class Agenda {
 			System.out.println(agenda.get(i).getNome() + "\n"
 					+ agenda.get(i).getTelefone() + "\n"
 					+ agenda.get(i).getEmail() + "\n");
-		}*/
+		}
 		agenda.forEach(contato -> {
 			//Aqui não é necessario usar getts
+			//System.out.println(agenda.toString());
 			System.out.println(contato.getNome() + "\n"
 					+ contato.getTelefone() + "\n"
 					+ contato.getEmail() + "\n");
-		});
+		});*/
+		System.out.println(agenda.toString());
 	}
 	
 	public void imprimePessoa(int index) {
-		System.out.println(agenda.get(index).getNome());
+		System.out.println(agenda.get(index).toString());
 	}
 	
 }
